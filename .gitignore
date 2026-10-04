@@ -1,0 +1,83 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+env/
+
+# =========================
+# Secrets / credentials
+# =========================
+.env
+.env.*
+*.pem
+*.key
+.aws/
+credentials
+
+# =========================
+# Bioinformatics data
+# =========================
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+
+*.bam
+*.bai
+*.sam
+*.cram
+*.crai
+
+*.vcf
+*.vcf.gz
+*.bcf
+*.tbi
+
+*.bed
+*.bed.gz
+
+# =========================
+# Large sequencing data
+# =========================
+data/raw/
+data/processed/
+data/results/
+
+# =========================
+# Nextflow
+# =========================
+.work/
+.nextflow/
+.nextflow.log
+.nextflow.log.*
+
+# =========================
+# Reports generated locally
+# =========================
+reports/
+results/
+work/
+
+# =========================
+# OS / editor files
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
