@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clinical-ngs-dashboard
+  namespace: clinical-ngs
+  labels:
+    app: clinical-ngs-dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clinical-ngs-dashboard
+  template:
+    metadata:
+      labels:
+        app: clinical-ngs-dashboard
+    spec:
+      containers:
+        - name: dashboard
+          image: vaibhavi1902/clinical-ngs-dashboard:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8501
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+          readinessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: 8501
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: 8501
+            initialDelaySeconds: 30
+            periodSeconds: 20
